@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import GifCard from './GifCard'
+import GifCardRandom from './GifCardRandom'
 
 function SearchField() {
     const [gif, setGif] = useState([])
+    const [randomGif, setRandomGif] = useState({});
     const [filteredData, setFilteredData] = useState("")
     const myAPI = "QxVcSjV1U82B2wXPo3GDoGiLxSDq9WpB"
 
@@ -42,7 +44,7 @@ function SearchField() {
             const jsonData = await response.json();
             console.log(jsonData);
 
-            setGif(jsonData.data);
+            setRandomGif(jsonData.data);
         } catch (err) {
             console.error(err.message);
         }
@@ -77,6 +79,7 @@ function SearchField() {
             </form>
 
             <GifCard gif = { gif } />
+            <GifCardRandom randomGif = { randomGif } />
         </>
     )
 }
