@@ -20,9 +20,42 @@ function SearchField() {
         }
     }
 
+    const getTrendingGif = async() => {
+        try {
+            const response = await fetch(`http://api.giphy.com/v1/gifs/trending?api_key=${myAPI}`)
+            console.log(response);
+
+            const jsonData = await response.json();
+            console.log(jsonData);
+
+            setGif(jsonData.data);
+        } catch (err) {
+            console.error(err.message);
+        }
+    }
+
+    const getRandomGif = async() => {
+        try {
+            const response = await fetch(`http://api.giphy.com/v1/gifs/random?api_key=${myAPI}`)
+            console.log(response);
+
+            const jsonData = await response.json();
+            console.log(jsonData);
+
+            setGif(jsonData.data);
+        } catch (err) {
+            console.error(err.message);
+        }
+    }
+
     useEffect(() => {
         getGif();
     }, [filteredData])
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log(e);
+    }
 
     return (
         <>
@@ -30,7 +63,7 @@ function SearchField() {
                 GIPHY SEARCH APP
             </h1>
 
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input
                     type = "text"
                     className = "form-control"
@@ -38,6 +71,9 @@ function SearchField() {
                     value = {filteredData}
                     onChange = {event => setFilteredData(event.target.value)}>
                 </input>
+
+                <button type="submit" onClick={getTrendingGif}>Trending</button>
+                <button type="submit" onClick={getRandomGif}>Random</button>
             </form>
 
             <GifCard gif = { gif } />
