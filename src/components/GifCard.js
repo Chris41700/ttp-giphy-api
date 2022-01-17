@@ -9,7 +9,7 @@ function GifCard(props) {
             {gif.map((element) => {
                 return (
                     <div key = {element.id}>
-                        <img src={element.url} alt={element.url}></img>   
+                        <img src={element.images.original.url} alt={element.images.original.url}></img>   
                     </div>
                 )
             })}
