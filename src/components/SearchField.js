@@ -4,11 +4,14 @@ import GifCardRandom from './GifCardRandom'
 
 function SearchField() {
     const [gif, setGif] = useState([])
-    const [randomGif, setRandomGif] = useState({});
+    const [randomGif, setRandomGif] = useState([]);
     const [filteredData, setFilteredData] = useState("")
+    const [isRandomClick, setIsRandomClick] = useState(false);
     const myAPI = "QxVcSjV1U82B2wXPo3GDoGiLxSDq9WpB"
 
-    const getGif = async() => {
+    const getGif = async e => {
+        e.preventDefault();
+
         try {
             const response = await fetch(`http://api.giphy.com/v1/gifs/search?q=${filteredData}&api_key=${myAPI}`)
             console.log(response);
@@ -17,6 +20,7 @@ function SearchField() {
             console.log(jsonData);
 
             setGif(jsonData.data);
+            setIsRandomClick(false);
         } catch (err) {
             console.error(err.message);
         }
@@ -31,6 +35,7 @@ function SearchField() {
             console.log(jsonData);
 
             setGif(jsonData.data);
+            setIsRandomClick(false);
         } catch (err) {
             console.error(err.message);
         }
@@ -45,6 +50,7 @@ function SearchField() {
             console.log(jsonData);
 
             setRandomGif(jsonData.data);
+            setIsRandomClick(true);
         } catch (err) {
             console.error(err.message);
         }
@@ -74,12 +80,13 @@ function SearchField() {
                     onChange = {event => setFilteredData(event.target.value)}>
                 </input>
 
+                <button type="submit" onClick={(getGif)}>Regular</button>
                 <button type="submit" onClick={getTrendingGif}>Trending</button>
                 <button type="submit" onClick={getRandomGif}>Random</button>
             </form>
 
-            <GifCard gif = { gif } />
-            <GifCardRandom randomGif = { randomGif } />
+            {!isRandomClick && <GifCard gif = { gif } />}
+            {isRandomClick && <GifCardRandom randomGif = { randomGif } />}
         </>
     )
 }

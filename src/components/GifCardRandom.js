@@ -7,7 +7,7 @@ function GifCardRandom(props) {
     return (
         <>
             <div key = {randomGif.id}>
-                <img src={randomGif.url} alt={randomGif.url}></img>   
+                <img src={randomGif?.images?.original?.url} alt={randomGif?.images?.original?.url}></img>   
             </div>
         </>
     )
