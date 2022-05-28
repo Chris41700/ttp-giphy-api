@@ -1,6 +1,7 @@
-.App {
+html, body, body > div, .app {
   text-align: center;
   background-color:blanchedalmond;
+  height: 100%;
 }
 
 .App-logo {
