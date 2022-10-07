@@ -1,4 +1,4 @@
-#Giphy API
+# Giphy API
 A React.js program that uses the Giphy API to display searched, trending, and random gifs.
 
 ## How to install & run
