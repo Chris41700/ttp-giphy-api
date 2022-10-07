@@ -14,4 +14,4 @@ After, run "npm start" </br>
 - [x] Have a button that displays a random gif from the Giphy API
 
 ## Project Running
-https://user-images.githubusercontent.com/60550186/194525717-d806e79c-603f-4713-9baa-6d755109cade.mp4
+https://user-images.githubusercontent.com/60550186/194528675-2eec6dcf-4d9f-429a-8d4f-6e2e0bf5131d.mp4
