@@ -2,9 +2,9 @@
 A React.js program that uses the Giphy API to display searched, trending, and random gifs.
 
 ## How to install & run
-Clone the repository on [Visual Studio Code](https://code.visualstudio.com/) </br>
-In the terminal, run "npm install" </br>
-After, run "npm start" </br>
+- Clone the repository on [Visual Studio Code](https://code.visualstudio.com/) 
+- In the terminal, run ``` npm install ```
+- Run ``` npm start ``` 
 
 ## MVP (Minimum Viable Product)
 - [x] Fetches a JSON response from the Giphy API
